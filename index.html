@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            width:25%;
+            height:60vh;
+            background-color: black;
+            /* border: 2px solid black;  */
+            padding:15px; 
+            border-radius: 15px;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr 1fr 1fr 1fr ;
+            gap:13px;
+            grid-auto-rows: 1fr;
+           
+        }
+        button{
+            border-radius: 50px;
+            display: flex;
+            justify-content: center; /* center horizontally */
+            align-items: center;     /* center vertically */
+
+        }
+        input{
+            text-align:right
+        }
+        .c1{
+            grid-column: 1/5;
+            
+        }
+        .c20{
+            grid-column: 3/5;
+        }
+        .c2,.c3,.c4,.c5,.c9,.c13,.c17,.c20{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="cont">
+         <input type="text" class="c1">
+        <button class="c2" onclick="fun('ac')">AC</button>
+        <button class="c3" onclick="fun('del')">DEL</button>
+        <button class="c4" onclick="fun('%')">%</button>
+        <button class="c5" onclick="fun('+')">+</button>
+        <button class="c6" onclick="fun('7')">7</button>
+        <button class="c7" onclick="fun('8')">8</button>
+        <button class="c8" onclick="fun('9')">9</button>
+        <button class="c9" onclick="fun('-')">-</button>
+        <button class="c10" onclick="fun('4')">4</button>
+        <button class="c11" onclick="fun('5')">5</button>
+        <button class="c12" onclick="fun('6')">6</button>
+        <button class="c13" onclick="fun('*')">*</button>
+        <button class="c14" onclick="fun('3')">3</button>
+        <button class="c15" onclick="fun('2')">2</button>
+        <button class="c16" onclick="fun('1')">1</button>
+        <button class="c17" onclick="fun('/')">/</button>
+         <button class="c18" onclick="fun('0')">0</button>
+        <button class="c19" onclick="fun('.')">.</button>
+        <button class="c20" onclick="fun('=')">=</button>
+    </div>
+    <script>
+        let ipr=document.getElementsByTagName("input")[0]
+        let s=""
+        function fun(ch){
+            if(ch=="ac"){
+                s=""
+                ipr.value=""
+            }
+            else if(ch=="del"){
+                s=s.slice(0,s.length-1)
+                ipr.value=s
+            }
+            else if(ch=="="){
+                ipr.value=eval(s)
+                s=""
+            }
+            else{
+                s=s+ch
+                ipr.value=s
+            }
+        }
+    </script>
+</body>
+</html>
